@@ -1,0 +1,11 @@
+.img-gallery img {
+    height: 150px;
+    border-radius: 10px;
+    box-shadow: 0 0 1px 1px;
+}
+
+.img-gallery img:hover {
+    cursor: pointer;
+    height: 160px;
+    box-shadow: 0 0 5px 3px;
+}

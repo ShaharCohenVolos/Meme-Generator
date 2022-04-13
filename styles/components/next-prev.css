@@ -1,0 +1,15 @@
+.page-nav {
+    background-color: var(--clrGlryBgc);
+    width: 90%;
+    height: 10%;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 10px var(--clrGlryBgc);
+}
+
+.page-nav span {
+    cursor: pointer;
+}
+
+.page-nav span:hover {
+    font-size: large;
+}

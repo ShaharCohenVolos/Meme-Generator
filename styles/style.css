@@ -1,0 +1,26 @@
+/* Setup */
+
+@import 'setup/vars.css';
+@import 'setup/typography.css';
+
+/* Base */
+
+@import 'basic/base.css';
+@import 'basic/layouts.css';
+@import 'basic/helpers.css';
+@import 'basic/mq.css';
+
+/* Components (Main page)*/
+
+@import 'components/main-header.css';
+@import 'components/main-container.css';
+@import 'components/filters-bar.css';
+@import 'components/img-gallery.css';
+@import 'components/img-card.css';
+@import 'components/next-prev.css';
+
+/* Components (Generator page)*/
+
+@import 'components/generator-body.css';
+@import 'components/canvas.css';
+@import 'components/editor-body.css';

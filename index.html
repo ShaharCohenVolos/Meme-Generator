@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meme-Generator</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body onload="onInit()">
+    <!-- Header -->
+    <header class="main-header flex space-around align-center">
+        <h1>Logo</h1>
+        <nav class="main-nav">
+            <a href="#">Gallery</a>
+            <a href="#">Memes</a>
+            <a href="#">About</a>
+        </nav>
+    </header>
+    <!-- Main Body -->
+    <main class="main-container flex align-center direction-column">
+        <section class="filters flex space-between align-center">
+            <form onsubmit="onSearchTag(event)">
+                <input type="text" name="search-tag" placeholder="Enter tag name">
+                <button class="btn searc-btn">Search</button>
+            </form>
+            <nav class="tags-nav flex space-around"></nav>
+        </section>
+        <section class="img-gallery grid"></section>
+        <nav class="page-nav flex align-center space-between">
+            <span class="prev-page" onclick="onPageChange(-1)">⬅ Previous</span>
+            <span class="prev-page" onclick="onPageChange(1)">Next ➡</span>
+        </nav>
+    </main>
+    <!--Meme gen-->
+    <main class="meme-gen-container flex">
+        <canvas id="canvas"></canvas>
+        <aside class="main-editor grid">
+            <input type="text" name="prnt-txt" placeholder="Enter text here">
+        </aside>
+    </main>
+
+
+
+    <script src="js/mainControler.js"></script>
+    <script src="js/services/galleryService.js"></script>
+    <script src="js/galleryControler.js"></script>
+    <script src="js/memeControler.js"></script>
+    <script src="js/services/memeService.js"></script>
+</body>
+
+</html>
