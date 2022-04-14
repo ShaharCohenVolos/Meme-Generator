@@ -7,3 +7,13 @@
     font-family: montserrat;
     src: url(../../fonts/montserrat/Montserrat-Regular.ttf);
 }
+
+@font-face {
+    font-family: righteous;
+    src: url(../../fonts/righteous/Righteous-Regular.ttf);
+}
+
+@font-face {
+    font-family: fredoka;
+    src: url(../../fonts/fredoka/FredokaOne-Regular.ttf);
+}

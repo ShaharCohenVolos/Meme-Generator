@@ -1,1 +1,44 @@
-/* ###### */
+.meme-gen.container .main-editor {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: repeat(auto-fit, minmax(1fr, 1fr));
+    place-items: center;
+}
+
+.main-editor section:not(:last-child) {
+    border-bottom: 0.5px solid black;
+}
+
+.main-editor .inputs {
+    grid-template-columns: repeat(auto-fit, minmax(1fr, 1fr));
+    justify-content: space-around;
+    place-items: center;
+}
+
+.main-editor .inputs input {
+    height: 20px;
+}
+
+.main-editor .btns {
+    justify-content: center;
+}
+
+.main-editor .btn {
+    height: 50%;
+    width: 50px;
+    border: none;
+    background-color: var(--clrGlryBgc);
+}
+
+.main-editor .font-btns>* {
+    border: none;
+    border-radius: 10px;
+}
+
+.main-editor .font-btns input {
+    width: 25px;
+    background-color: var(--clrGlryBgc);
+}
+
+.main-editor .select-font {
+    height: 25%;
+}

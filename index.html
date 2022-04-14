@@ -12,7 +12,7 @@
 <body onload="onInit()">
     <!-- Header -->
     <header class="main-header flex space-around align-center">
-        <h1>Logo</h1>
+        <h1 class="logo">Meme Generator</h1>
         <nav class="main-nav">
             <a href="#">Gallery</a>
             <a href="#">Memes</a>
@@ -35,12 +35,44 @@
         </nav>
     </main>
     <!--Meme gen-->
-    <main class="meme-gen-container flex">
-        <canvas id="canvas"></canvas>
+    <main class="meme-gen-container grid">
+        <canvas id="canvas" height="500" width="500"></canvas>
         <aside class="main-editor grid">
-            <input type="text" name="prnt-txt" placeholder="Enter text here">
+            <section class="inputs grid">
+                <input type="text" name="prnt-txt" oninput="onEnterTxt(this)" onfocus="onSetLineIdx(this.name)" placeholder="Enter text here">
+            </section>
+            <section class="btns control-btns flex align-center">
+                <button class="btn switch-btn" onclick="onSwitchRow()" title="select next row">⬆⬇</button>
+                <button class="btn add-row" onclick="onAddRow()" title="Add row">➕</button>
+                <button class="btn remove-row" onclick="onRemoveRow()" title="remove last row">🚮</button>
+            </section>
+            <section class="btns txt-btns flex align-center">
+                <button class="btn font-up" onclick="onChangeFontSize(5)" title="Increase font size">+A</button>
+                <button class="btn font-down" onclick="onChangeFontSize(-5)" title="Decrease font size">-A</button>
+                <button class="btn txt-left" onclick="onMoveTxt(-1)" title="Align text left">⬅A</button>
+                <button class="btn txt-right" onclick="onMoveTxt(1)" title="Align text right">A➡</button>
+                <button class="btn txt-middle" onclick="onMoveTxt(0)" title="Align text center">➡A⬅</button>
+            </section>
+            <section class="btns font-btns flex align-center">
+                <select class="select-font" onchange="onChangeFont(this.value)">
+                    <option value="impact">impact</option>
+                    <option value="montserrat">montserrat</option>
+                    <option value="fredoka">fredoka</option>
+                    <option value="righteous">righteous</option>
+                </select>
+                <input type="color" onchange="onChangeOutlineClr(this.value)" title="Choose outline color">
+                <input type="color" onchange="onChangeFillClr(this.value)" value="#ffffff" title="Choose fill color">
+            </section>
+            <section class="btns download-share flex align-center">
+                <a href="#" onclick="onDownloadMeme(this)" download="your_meme.jpg">Download</a>
+            </section>
         </aside>
     </main>
+    <!-- Footer -->
+    <footer class="footer">
+        <h2 class="logo">Meme Generator</h2>
+        <small class="rights">©Cofferights</small>
+    </footer>
 
 
 

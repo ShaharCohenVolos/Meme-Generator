@@ -55,6 +55,9 @@ function onSearchTag(ev) {
     renderGallery()
 }
 
-function onImgSelect(memeId) {
+function onImgSelect(imgId) {
+    document.querySelector('main.main-container').style.display = 'none'
+    document.querySelector('main.meme-gen-container').style.display = 'grid'
 
+    renderMeme(imgId)
 }
