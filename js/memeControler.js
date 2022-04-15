@@ -7,15 +7,18 @@ var gCtx;
 function renderMeme(imgId) {
     gElCanvas = document.querySelector('#canvas')
     gCtx = gElCanvas.getContext('2d')
-    gMeme.selectedImgId = imgId
+
+    if (!imgId) imgId = gMeme.selectedImgId
+    else gMeme.selectedImgId = imgId
     const imgUrl = getImgById(imgId)
     drawCanvas(imgUrl)
+
 }
 
 function onEnterTxt(ele) {
 
     setMemeTxt(ele.value)
-    renderMeme(gMeme.selectedImgId)
+    renderMeme()
 }
 
 function drawCanvas(imgUrl) {
@@ -24,6 +27,7 @@ function drawCanvas(imgUrl) {
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
         drawTxt()
+        drawRect()
     }
 }
 
@@ -37,7 +41,7 @@ function onSwitchRow() {
 
 function onSetLineIdx(name) {
     setSelectedLine(name)
-    renderMeme(gMeme.selectedImgId)
+    renderMeme()
 }
 
 function onRemoveRow() {
@@ -46,32 +50,37 @@ function onRemoveRow() {
 
 function onChangeFontSize(diff) {
     changeFontSize(diff)
-    renderMeme(gMeme.selectedImgId)
+    renderMeme()
 }
 
 
 function onMoveTxt(diff) {
     moveTxt(diff)
-    renderMeme(gMeme.selectedImgId)
+    renderMeme()
 }
 
 function onChangeFont(font) {
     changeFont(font)
-    renderMeme(gMeme.selectedImgId)
+    renderMeme()
 }
 
 function onChangeOutlineClr(clr) {
     changeOutline(clr)
-    renderMeme(gMeme.selectedImgId)
+    renderMeme()
 }
 
 function onChangeFillClr(clr) {
     changeFill(clr)
-    renderMeme(gMeme.selectedImgId)
+    renderMeme()
 }
 
 function onDownloadMeme(elLink) {
     const data = gElCanvas.toDataURL()
     elLink.href = data
         // elLink.download = getImgById(gMeme.selectedImgId)
+}
+
+function addEvListeners() {
+    addMouseListeners()
+    addTouchListeners()
 }

@@ -12,11 +12,12 @@ var gMeme = {
         fill: 'transparent',
         font: 'impact',
         pos: {
-            x: 250,
-            y: 100
+            x: 200,
+            y: 50
         }
     }]
 }
+var gStartPos;
 
 function setMemeTxt(txt) {
     gMeme.lines[gMeme.selectedLineIdx].txt = txt;
@@ -46,9 +47,9 @@ function _createLine(y, size = 50) {
         fill: 'transparent',
         font: 'impact',
         pos: {
-            x: 250,
+            x: gElCanvas.width / 2,
             y: y
-        }
+        },
     }
 }
 
@@ -67,10 +68,10 @@ function _setMemePosAndSize() {
     var y = 0;
     var size = 50;
     if (gMeme.lines.length === 1) {
-        y = 400
+        y = 350
         return { y: y, size: size }
     } else if (gMeme.lines.length === 2) {
-        y = 250;
+        y = 200;
         return { y: y, size: size }
     } else {
         gMeme.lines.forEach(line => {
@@ -146,4 +147,86 @@ function changeOutline(clr) {
 
 function changeFill(clr) {
     gMeme.lines.forEach(line => line.fill = clr)
+}
+
+function drawRect() {
+    setRectPos()
+    const line = gMeme.lines[gMeme.selectedLineIdx]
+    gCtx.beginPath()
+    gCtx.rect(line.rectPos.x, line.rectPos.y, line.rectPos.width, line.rectPos.height)
+    gCtx.lineWidth = 1
+    gCtx.stroke()
+}
+
+function setRectPos() {
+    const line = gMeme.lines[gMeme.selectedLineIdx]
+    const txtWidth = gCtx.measureText(line.txt).width
+    const txtHeight = line.size
+    const rectPos = {
+        width: Math.floor(txtWidth + 20),
+        height: Math.floor(txtHeight + (txtHeight / 4)),
+        x: Math.floor(line.pos.x - txtWidth / 2 - 10),
+        y: line.pos.y - txtHeight,
+    }
+    if (line.pos.x === 0) rectPos.x = line.pos.x
+    else if (line.pos.x === gElCanvas.width) rectPos.x = line.pos.x - txtWidth
+    line.rectPos = rectPos
+}
+
+function onMove(ev) {
+    const line = gMeme.lines[gMeme.selectedLineIdx]
+    if (!line.isDrag) return
+    const pos = getEvPos(ev)
+    const dx = pos.x - gStartPos.x
+    const dy = pos.y - gStartPos.y
+    moveLinePos(dx, dy)
+    gStartPos = pos
+    renderMeme()
+}
+
+function onDown(ev) {
+    ev.preventDefault()
+    const pos = getEvPos(ev)
+    if (!isLineClicked(pos)) return
+    renderMeme()
+    setLineDrag(true)
+    gStartPos = pos
+    gElCanvas.style.cursor = 'grabbing'
+}
+
+function onUp(ev) {
+    setLineDrag(false)
+    gElCanvas.style.cursor = 'default'
+}
+
+
+function setLineDrag(val) {
+    gMeme.lines[gMeme.selectedLineIdx].isDrag = val
+}
+
+function isLineClicked(pos) {
+    return gMeme.lines.find((line, idx) => {
+        const rect = line.rectPos
+        if (pos.x > rect.x &&
+            pos.x < rect.x + rect.width &&
+            pos.y > rect.y &&
+            pos.y < rect.y + rect.height) {
+            // gMeme.selectedLine = idx
+            const lineName = findLineNameByIdx(idx)
+            setSelectedLine(lineName)
+            return true
+        }
+    });
+}
+
+function moveLinePos(dx, dy) {
+    const line = gMeme.lines[gMeme.selectedLineIdx]
+    line.pos.x += dx
+    line.pos.y += dy
+}
+
+function findLineNameByIdx(idx) {
+    var nameStr = 'prnt-txt'
+    if (!idx) return nameStr
+    else return nameStr + '-' + idx
 }

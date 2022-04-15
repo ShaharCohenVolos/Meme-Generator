@@ -36,7 +36,7 @@
     </main>
     <!--Meme gen-->
     <main class="meme-gen-container grid">
-        <canvas id="canvas" height="500" width="500"></canvas>
+        <canvas id="canvas" height="400" width="400"></canvas>
         <aside class="main-editor grid">
             <section class="inputs grid">
                 <input type="text" name="prnt-txt" oninput="onEnterTxt(this)" onfocus="onSetLineIdx(this.name)" placeholder="Enter text here">
@@ -77,6 +77,7 @@
 
 
     <script src="js/mainControler.js"></script>
+    <script src="js/services/utils.js"></script>
     <script src="js/services/galleryService.js"></script>
     <script src="js/galleryControler.js"></script>
     <script src="js/memeControler.js"></script>

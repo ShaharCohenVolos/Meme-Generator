@@ -1,6 +1,6 @@
 'use strict'
 
-const PAGE_SIZE = 15;
+const PAGE_SIZE = 5;
 
 var gPageIdx = 0;
 var gImgs = [{ id: 1, url: 'img/1.jpg', keywords: ['angry', 'politic'] },

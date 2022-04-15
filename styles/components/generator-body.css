@@ -1,6 +1,8 @@
 .meme-gen-container {
-    background-color: var(--clrGlryBgc);
     display: none;
     /* */
-    grid-template-columns: 1fr 1fr;
+    background-color: var(--clrGlryBgc);
+    grid-template-columns: repeat(auto-fit, minmax(200px, 400px));
+    justify-content: space-around;
+    place-items: center
 }
