@@ -3,22 +3,18 @@
 }
 
 .main-container .filters form {
-    padding: 10px;
+    padding: 5px;
     flex-grow: 1;
 }
 
 .main-container .filters .tags-nav {
-    flex-grow: 1;
+    min-width: 150px;
     cursor: pointer;
     font-size: 12px;
+    grid-template-columns: repeat(auto-fit, minmax(20px, 75px));
 }
 
 .main-container .filters .tags-nav span {
-    flex-grow: 1;
     text-align: center;
+    box-sizing: content-box;
 }
-
-
-/* .main-container .filters .tags-nav span:hover {
-    font-size: 14px;
-} */

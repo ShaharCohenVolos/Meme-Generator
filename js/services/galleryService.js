@@ -1,6 +1,6 @@
 'use strict'
 
-const PAGE_SIZE = 5;
+var gPageSize = 5;
 
 var gPageIdx = 0;
 var gImgs = [{ id: 1, url: 'img/1.jpg', keywords: ['angry', 'politic'] },
@@ -28,8 +28,8 @@ function getImgsToDisplay() {
     if (!gFilter) var imgs = gImgs;
     else var imgs = gImgs.filter(img => img.keywords.includes(gFilter))
 
-    const idxStart = gPageIdx * PAGE_SIZE;
-    imgs = imgs.slice(idxStart, idxStart + PAGE_SIZE);
+    const idxStart = gPageIdx * gPageSize;
+    imgs = imgs.slice(idxStart, idxStart + gPageSize);
 
     if (gPageIdx < 0 || !imgs.length) return
     return imgs
@@ -37,14 +37,32 @@ function getImgsToDisplay() {
 
 function changePage(diff) {
     gPageIdx += diff;
-    if (gPageIdx * PAGE_SIZE > gImgs.length) {
+    if (gPageIdx * gPageSize > gImgs.length) {
         gPageIdx = 0;
     }
-    if (gPageIdx < 0) gPageIdx = gImgs.length / PAGE_SIZE - 1
+    if (gPageIdx < 0) gPageIdx = gImgs.length / gPageSize - 1
 }
 
 
 function getTags() {
+    var tags = gImgs.reduce((acc, img) => {
+        acc.push(...img.keywords)
+        return acc
+    }, []);
+    tags = tags.reduce((acc, tag) => {
+        acc[tag] = acc[tag] ? acc[tag] + 1 : 1
+        return acc
+    }, {})
+    var popTags = []
+    for (var key in tags) {
+        if (tags[key] >= 3) popTags.push(key)
+    }
+
+    return popTags
+}
+
+
+function getAllUniqueTags() {
     var tags = gImgs.reduce((acc, img) => {
         acc.push(...img.keywords)
         return acc
@@ -63,4 +81,10 @@ function setFilter(tag) {
 function getImgById(imgId) {
     const img = gImgs.find(img => img.id === imgId)
     return img.url
+}
+
+function resizeGallery() {
+    const elContainer = document.querySelector('.img-gallery')
+    if (elContainer.offsetWidth <= 400) gPageSize = 4
+    else gPageSize = 5
 }

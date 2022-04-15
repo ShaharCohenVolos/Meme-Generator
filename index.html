@@ -22,11 +22,14 @@
     <!-- Main Body -->
     <main class="main-container flex align-center direction-column">
         <section class="filters flex space-between align-center">
-            <form onsubmit="onSearchTag(event)">
+            <!-- <form onsubmit="onSearchTag(event)">
                 <input type="text" name="search-tag" placeholder="Enter tag name">
                 <button class="btn searc-btn">Search</button>
-            </form>
-            <nav class="tags-nav flex space-around"></nav>
+            </form> -->
+            <select class="select-tag" onchange="onSetFilter(this.value)">
+                <option value="">Search-Tag</option>
+            </select>
+            <nav class="tags-nav grid"></nav>
         </section>
         <section class="img-gallery grid"></section>
         <nav class="page-nav flex align-center space-between">

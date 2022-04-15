@@ -37,6 +37,16 @@ function onSetFilter(tag) {
     renderGallery()
 }
 
+function renderTagsSelector() {
+    const elSelect = document.querySelector('.filters .select-tag')
+    const tags = getAllUniqueTags()
+    const strHtml = tags.map(function(tag) {
+        return `<option value="${tag}">${tag}</option>`
+    })
+    elSelect.innerHTML += strHtml
+}
+
+
 // function renderFilterByQueryStringParams() {
 //     const queryStringParams = new URLSearchParams(window.location.search)
 //     const filterTag = {
@@ -47,13 +57,13 @@ function onSetFilter(tag) {
 
 
 
-function onSearchTag(ev) {
-    ev.preventDefault()
-    const elTag = document.querySelector('input[name=search-tag]')
+// function onSearchTag(ev) {
+//     ev.preventDefault()
+//     const elTag = document.querySelector('input[name=search-tag]')
 
-    setFilter(elTag.value)
-    renderGallery()
-}
+//     setFilter(elTag.value)
+//     renderGallery()
+// }
 
 function onImgSelect(imgId) {
     document.querySelector('main.main-container').style.display = 'none'
@@ -61,4 +71,11 @@ function onImgSelect(imgId) {
 
     renderMeme(imgId)
     addEvListeners()
+}
+
+function addGalleryListener() {
+    window.addEventListener('resize', () => {
+        resizeGallery()
+        renderGallery()
+    })
 }

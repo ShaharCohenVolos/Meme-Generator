@@ -6,4 +6,8 @@
     border-bottom: 1px solid black;
 }
 
-.main-header .main-nav {}
+@media screen and (max-width:400px) {
+    .logo {
+        font-size: 15px;
+    }
+}
