@@ -12,7 +12,6 @@ function renderMeme(imgId) {
     if (!imgId) imgId = gMeme.selectedImgId
     else gMeme.selectedImgId = imgId
     const imgUrl = getImgById(imgId)
-        // resizeCanvas()
     drawCanvas(imgUrl)
 }
 

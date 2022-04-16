@@ -71,6 +71,8 @@ function onImgSelect(imgId) {
     document.querySelector('main.meme-gen-container').style.display = 'grid'
 
     renderMeme(imgId)
+
+    resizeCanvas()
     addEvListeners()
 }
 
