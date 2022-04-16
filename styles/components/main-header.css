@@ -6,6 +6,15 @@
     border-bottom: 1px solid black;
 }
 
+.main-header h1:hover {
+    cursor: pointer;
+}
+
+.main-header span:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 @media screen and (max-width:400px) {
     .logo {
         font-size: 15px;

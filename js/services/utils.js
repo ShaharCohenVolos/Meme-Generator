@@ -1,3 +1,4 @@
+'use strict'
 const gTouchEvs = ['touchstart', 'touchmove', 'touchend']
 
 function addMouseListeners() {

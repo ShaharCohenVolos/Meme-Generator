@@ -1,6 +1,7 @@
 'use strict'
+const SAVED_MEME = 'memeDB'
 
-
+let gSavedMemes = []
 var gMeme = {
     selectedImgId: 5,
     selectedLineIdx: 0,
@@ -249,4 +250,29 @@ function reSizeTxt(size, xPos) {
         line.size = size;
         line.pos.x = xPos;
     })
+}
+
+function fontFamForFontSelect(font) {
+    const elSelect = document.querySelector('.select-font')
+    elSelect.style.fontFamily = font;
+}
+
+function resetMeme() {
+    for (var i = gMeme.lines.length; i > 1; i--) {
+        removeLastRow()
+    }
+
+    gMeme.lines = [{
+        txt: 'Enter Text Here',
+        size: 50,
+        align: 'center',
+        outline: 'black',
+        fill: 'transparent',
+        font: 'impact',
+        pos: {
+            x: 200,
+            y: 50
+        }
+    }]
+    renderMem()
 }

@@ -12,11 +12,11 @@
 <body onload="onInit()">
     <!-- Header -->
     <header class="main-header flex space-around align-center">
-        <h1 class="logo">Meme Generator</h1>
+        <h1 class="logo" onclick="mainPage()">Meme Generator</h1>
         <nav class="main-nav">
-            <a href="#">Gallery</a>
-            <a href="#">Memes</a>
-            <a href="#">About</a>
+            <span>Gallery</span>
+            <span>Memes</span>
+            <span>About</span>
         </nav>
     </header>
     <!-- Main Body -->
@@ -55,14 +55,14 @@
                 <button class="btn txt-middle" onclick="onMoveTxt(0)" title="Align text center">➡A⬅</button>
             </section>
             <section class="btns font-btns flex align-center">
-                <select class="select-font" onchange="onChangeFont(this.value)">
-                    <option value="impact">impact</option>
-                    <option value="montserrat">montserrat</option>
-                    <option value="fredoka">fredoka</option>
-                    <option value="righteous">righteous</option>
+                <select class="select-font" onchange="onChangeFont(this.value), fontFamForFontSelect(this.value)">
+                    <option class="impact" value="impact">impact</option>
+                    <option class="montserrat" value="montserrat">montserrat</option>
+                    <option class="fredoka" value="fredoka">fredoka</option>
+                    <option class="righteous" value="righteous">righteous</option>
                 </select>
-                <input type="color" onchange="onChangeOutlineClr(this.value)" title="Choose outline color">
-                <input type="color" onchange="onChangeFillClr(this.value)" value="#ffffff" title="Choose fill color">
+                <label class="outline">Outline:<input type="color" onchange="onChangeOutlineClr(this.value)" title="Choose outline color"></label>
+                <label class="fill">Fill:<input type="color" onchange="onChangeFillClr(this.value)" value="#ffffff" title="Choose fill color"></label>
             </section>
             <section class="btns download-share flex align-center">
                 <a href="#" onclick="onDownloadMeme(this)" download="your_meme.jpg">Download</a>
@@ -77,6 +77,7 @@
 
 
 
+    <script src="js/services/storage.js"></script>
     <script src="js/mainControler.js"></script>
     <script src="js/services/utils.js"></script>
     <script src="js/services/galleryService.js"></script>

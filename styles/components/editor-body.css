@@ -41,5 +41,30 @@
 }
 
 .main-editor .select-font {
-    height: 25%;
+    height: 35%;
+}
+
+.main-editor .select-font .impact {
+    font-family: impact;
+}
+
+.main-editor .select-font .montserrat {
+    font-family: montserrat;
+}
+
+.main-editor .select-font .fredoka {
+    font-family: fredoka;
+}
+
+.main-editor .select-font .righteous {
+    font-family: righteous;
+}
+
+.main-editor .font-btns label {
+    font-size: 13px;
+    text-align: center;
+}
+
+.main-editor .font-btns label input {
+    border: none;
 }

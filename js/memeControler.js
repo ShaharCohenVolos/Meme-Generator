@@ -4,6 +4,7 @@ var gElCanvas;
 var gCtx;
 
 
+
 function renderMeme(imgId) {
     gElCanvas = document.querySelector('#canvas')
     gCtx = gElCanvas.getContext('2d')
@@ -11,7 +12,7 @@ function renderMeme(imgId) {
     if (!imgId) imgId = gMeme.selectedImgId
     else gMeme.selectedImgId = imgId
     const imgUrl = getImgById(imgId)
-    resizeCanvas()
+        // resizeCanvas()
     drawCanvas(imgUrl)
 }
 
@@ -79,6 +80,7 @@ function onDownloadMeme(elLink) {
     elLink.href = data
         // elLink.download = getImgById(gMeme.selectedImgId)
 }
+
 
 function addEvListeners() {
     addMouseListeners()
