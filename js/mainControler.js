@@ -6,7 +6,7 @@ function onInit() {
 
 
     renderTags()
-    renderTagsSelector()
+    renderTagsSelect()
     resizeGallery()
     addGalleryListener()
     renderGallery()

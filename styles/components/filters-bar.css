@@ -1,5 +1,6 @@
 .main-container .filters {
     width: 90%;
+    height: 4em;
 }
 
 .main-container .filters form {
@@ -8,13 +9,19 @@
 }
 
 .main-container .filters .tags-nav {
+    flex-grow: 1;
     min-width: 150px;
     cursor: pointer;
     font-size: 12px;
     grid-template-columns: repeat(auto-fit, minmax(20px, 75px));
+    justify-content: end;
 }
 
 .main-container .filters .tags-nav span {
     text-align: center;
     box-sizing: content-box;
+}
+
+.main-container .filters .tags-nav span:hover {
+    text-decoration: underline;
 }

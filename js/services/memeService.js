@@ -230,3 +230,23 @@ function findLineNameByIdx(idx) {
     if (!idx) return nameStr
     else return nameStr + '-' + idx
 }
+
+function resizeCanvas() {
+    const elCnvsCntnr = document.querySelector('.canvas-container')
+    if (elCnvsCntnr.offsetWidth < 400) {
+        gElCanvas.width = 350;
+        gElCanvas.height = 350;
+        reSizeTxt(35, gElCanvas.width / 2)
+    } else {
+        gElCanvas.width = 400;
+        gElCanvas.height = 400;
+        reSizeTxt(50, gElCanvas.width / 2)
+    }
+}
+
+function reSizeTxt(size, xPos) {
+    gMeme.lines.forEach(line => {
+        line.size = size;
+        line.pos.x = xPos;
+    })
+}

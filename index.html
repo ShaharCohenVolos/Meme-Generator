@@ -22,10 +22,6 @@
     <!-- Main Body -->
     <main class="main-container flex align-center direction-column">
         <section class="filters flex space-between align-center">
-            <!-- <form onsubmit="onSearchTag(event)">
-                <input type="text" name="search-tag" placeholder="Enter tag name">
-                <button class="btn searc-btn">Search</button>
-            </form> -->
             <select class="select-tag" onchange="onSetFilter(this.value)">
                 <option value="">Search-Tag</option>
             </select>
@@ -39,7 +35,9 @@
     </main>
     <!--Meme gen-->
     <main class="meme-gen-container grid">
-        <canvas id="canvas" height="400" width="400"></canvas>
+        <section class="canvas-container">
+            <canvas id="canvas" height="400" width="400"></canvas>
+        </section>
         <aside class="main-editor grid">
             <section class="inputs grid">
                 <input type="text" name="prnt-txt" oninput="onEnterTxt(this)" onfocus="onSetLineIdx(this.name)" placeholder="Enter text here">

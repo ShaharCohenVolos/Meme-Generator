@@ -2,7 +2,37 @@
     display: none;
     /* */
     background-color: var(--clrGlryBgc);
-    grid-template-columns: repeat(auto-fit, minmax(200px, 400px));
+    /* grid-template-columns: repeat(auto-fit, minmax(200px, 400px)); */
+    grid-template-columns: 1fr 1fr;
     justify-content: space-around;
-    place-items: center
+    place-items: center;
+}
+
+.meme-gen-container .canvas-container {
+    width: 400px;
+    height: 400px;
+}
+
+@media screen and (max-width: 768px) {
+    .meme-gen-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .meme-gen-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+    .meme-gen-container .canvas-container {
+        max-width: 350px;
+        max-height: 350px
+    }
+    .meme-gen-container .main-editor {
+        align-self: start;
+    }
+    .meme-gen-container .main-editor section {
+        height: 3rem;
+    }
 }

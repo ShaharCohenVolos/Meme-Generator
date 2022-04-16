@@ -4,9 +4,9 @@
     height: 500px;
 }
 
-.main-editor section:not(:last-child) {
+.main-editor section {
     /* border-bottom: 0.5px solid black; */
-    min-height: 5rem;
+    height: 5rem;
 }
 
 .main-editor .inputs {

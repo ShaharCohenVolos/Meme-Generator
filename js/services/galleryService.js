@@ -53,6 +53,7 @@ function getTags() {
         acc[tag] = acc[tag] ? acc[tag] + 1 : 1
         return acc
     }, {})
+
     var popTags = []
     for (var key in tags) {
         if (tags[key] >= 3) popTags.push(key)

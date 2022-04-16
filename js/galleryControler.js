@@ -25,6 +25,7 @@ function renderTags() {
         onclick="onSetFilter('${tag}')">${tag}</span>`
     })
     elTagsNav.innerHTML = strHTML.join('')
+
 }
 
 function onSetFilter(tag) {
@@ -37,7 +38,7 @@ function onSetFilter(tag) {
     renderGallery()
 }
 
-function renderTagsSelector() {
+function renderTagsSelect() {
     const elSelect = document.querySelector('.filters .select-tag')
     const tags = getAllUniqueTags()
     const strHtml = tags.map(function(tag) {

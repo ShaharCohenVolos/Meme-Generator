@@ -11,8 +11,8 @@ function renderMeme(imgId) {
     if (!imgId) imgId = gMeme.selectedImgId
     else gMeme.selectedImgId = imgId
     const imgUrl = getImgById(imgId)
+    resizeCanvas()
     drawCanvas(imgUrl)
-
 }
 
 function onEnterTxt(ele) {
@@ -83,4 +83,8 @@ function onDownloadMeme(elLink) {
 function addEvListeners() {
     addMouseListeners()
     addTouchListeners()
+    window.addEventListener('resize', () => {
+        resizeCanvas()
+        renderMeme()
+    })
 }
